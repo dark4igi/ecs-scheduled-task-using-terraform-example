@@ -1,0 +1,25 @@
+[
+  {
+  "name": "cron-worker",
+      "image": "igi7/cron-worker",
+      "cpu": 0,
+      "essential": true,
+      "environment": [
+          {
+              "name": "TABLE",
+              "value": "${table_name}"
+          }
+      ],
+      "mountPoints": [],
+      "volumesFrom": [],
+      "logConfiguration": {
+          "logDriver": "awslogs",
+          "options": {
+              "awslogs-group": "/ecs/cron-worker",
+              "awslogs-region": "us-east-1",
+              "awslogs-stream-prefix": "ecs"
+          }
+
+      }
+  }
+]
